@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CRM Home</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+            margin:0;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .add-btn{
+            text-decoration:none;
+            background:#28a745;
+            color:white;
+            padding:10px 18px;
+            border-radius:5px;
+            font-weight:bold;
+        }
+
+        .add-btn:hover{
+            background:#218838;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#007bff;
+            color:white;
+            padding:12px;
+        }
+
+        td{
+            padding:12px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+
+        tr:nth-child(even){
+            background:#f8f9fa;
+        }
+
+        tr:hover{
+            background:#eef3ff;
+        }
+
+        .edit-btn{
+            text-decoration:none;
+            background:#ffc107;
+            color:black;
+            padding:6px 12px;
+            border-radius:4px;
+            margin-right:5px;
+        }
+
+        .delete-btn{
+            text-decoration:none;
+            background:#dc3545;
+            color:white;
+            padding:6px 12px;
+            border-radius:4px;
+        }
+
+        .edit-btn:hover{
+            background:#e0a800;
+        }
+
+        .delete-btn:hover{
+            background:#c82333;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Customer List</h1>
+
+    <a href="/addCustomer" class="add-btn">+ Add Customer</a>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Action</th>
+        </tr>
+
+        <tr th:each="c : ${customers}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.email}"></td>
+            <td th:text="${c.phone}"></td>
+            <td th:text="${c.company}"></td>
+
+            <td>
+                <a th:href="@{/edit/{id}(id=${c.id})}" class="edit-btn">Edit</a>
+
+                <a th:href="@{/delete/{id}(id=${c.id})}" class="delete-btn">Delete</a>
+            </td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>
