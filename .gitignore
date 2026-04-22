@@ -1,7 +1,22 @@
+# Build folders
 target/
-.mvn/
-mvnw
-mvnw.cmd
-*.log
+bin/
+out/
+
+# IDE files
 .idea/
 .vscode/
+*.iml
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Duplicate / accidental folders
+Jackson2 (2)/
+
+# Spring Boot generated
+*.class
