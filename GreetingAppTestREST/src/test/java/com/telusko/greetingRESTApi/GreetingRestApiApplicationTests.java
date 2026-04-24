@@ -33,7 +33,7 @@ class GreetingRestApiApplicationTests {
 	private Igreeting service;
 
 	@Test
-	@Disabled
+
 	public void testgetGreeting() throws Exception {
 // mockObject
 		Mockito.when(service.generateGreeting("Shiv"))

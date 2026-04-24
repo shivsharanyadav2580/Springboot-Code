@@ -3,12 +3,24 @@ package com.telusko.greetingRESTApi.controller;
 import com.telusko.greetingRESTApi.model.Student;
 import com.telusko.greetingRESTApi.service.Igreeting;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @RestController
+//@SessionScope
+//@RequestScope
+//@Profile("qa")
+//@Profile({"dev" , "qa"})
+@Profile({"dev | qa"})
 public class GreetingController {
+    public GreetingController(){
+        System.out.println("Greeting bean created");
+    }
+
     @Autowired
     private Igreeting greet; // field injection
 
