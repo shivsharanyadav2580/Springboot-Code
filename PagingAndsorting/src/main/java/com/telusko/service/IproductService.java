@@ -11,5 +11,9 @@ public interface IproductService {
   void fetchPageByPagination(int pageSize);
 
 
+  public void deleteProductByPProductName(Product product){
+
+  }
+
 
 }
